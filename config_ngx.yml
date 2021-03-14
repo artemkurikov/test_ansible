@@ -1,0 +1,12 @@
+---
+
+- name: config nginx
+  hosts: servers
+  tasks:
+        - name: copy config
+          copy: src=conf_ngx/ngix.conf dest=/etc/nginx/sites-available/default
+        - name: copy html
+          get_url: url='https://github.com/artemkurikov' dest=/var/www/html/index.nginx-debian.html
+        - name: reload config
+          systemd: name=nginx state=reloaded
+

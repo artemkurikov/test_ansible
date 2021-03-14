@@ -1,0 +1,9 @@
+---
+
+- name: add ssh key
+  hosts: servers
+  tasks:
+        - name: add ssh key
+          authorized_key: user=root key="{{ lookup('file', item) }}" 
+          with_fileglob: 
+            - ssh_keys/*.pub

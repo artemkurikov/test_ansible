@@ -1,0 +1,11 @@
+---
+
+- name: install app 
+  hosts: servers
+  tasks:
+        - name: Install nginx web server
+          apt: pkg=nginx state=present update_cache=true
+        - name: Install zsh 
+          apt: pkg=zsh state=present update_cache=true
+        - name: install wget
+          apt: pkg=wget state=present update_cache=true

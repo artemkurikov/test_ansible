@@ -1,0 +1,9 @@
+---
+
+- name: config
+  hosts: servers
+  tasks:
+        - name: config sysctl fs.file-max
+          sysctl: name=fs.file-max value=1204000 reload=yes 
+        - name: config syctl somaxconn
+          sysctl: name=net.core.somaxconn value=65535 reload=yes
